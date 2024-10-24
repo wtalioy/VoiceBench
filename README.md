@@ -3,6 +3,19 @@
 This repo contains the data of:
 [VoiceBench: Benchmarking LLM-Based Voice Assistants](https://arxiv.org/abs/2410.17196)
 
+## Leaderboard
+
+| Rank | Model                 |    AlpacaEval   |    CommonEval   |    SD-QA   |    IFEval   |   AdvBench   |   Overall   |
+|------|-----------------------|:---------------:|:---------------:|:----------:|:-----------:|:------------:|:-----------:|
+| 1    | Whisper-v3+LLaMA-3.1   | 4.68       | 4.04       | 70.43 | 69.53  | 98.08    | 74.50   |
+| 2    | DiVA                   | 3.86       | 3.54       | 57.05 | 39.15  | 98.27    | 64.02   |
+| 3    | Qwen2-Audio            | 3.89       | 3.43       | 35.71 | 26.33  | 96.73    | 59.83   |
+| 4    | Mini-Omni              | 2.25       | 2.02       | 13.92 | 13.58  | 37.12    | 41.56   |
+| 5    | LLaMA-Omni             | 3.95       | 3.46       | 39.69 | 14.87  | 11.35    | 40.21   |
+| 6    | VITA                   | 3.78       | 2.15       | 27.94 | 22.82  | 26.73    | 39.33   |
+
+We encourage you to submit new voice assistant results directly through the issue tracker. The ranking list will be updated accordingly.
+
 ## Setup
 ```shell
 conda create -n voicebench python=3.10
@@ -28,6 +41,21 @@ from datasets import load_dataset
 # Available subset: alpacaeval, commoneval, sd-qa, ifeval, advbench
 dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 ```
+
+### Available Data
+
+| Subset            | # Samples | Audio Source |
+|-------------------|:---------:|:------------:|
+| alpacaeval        |    199    |  Google TTS  |
+| alpacaeval_full   |    636    |  Google TTS  |
+| commoneval        |    200    |    Human     |
+| sd-qa             |    553    |    Human     |
+| ifeval            |    345    |  Google TTS  |
+| advbench          |    520    |  Google TTS  |
+
+
+**PS**: `alpacaeval` (used in our paper) contains `helpful_base` and `vicuna` data, while `alpacaeval_full` is constructed with the complete data.
+
 
 ## Evaluation
 ### Step 1: Get the Voice Assistant's Response
