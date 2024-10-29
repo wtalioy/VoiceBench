@@ -1,7 +1,10 @@
 # VoiceBench
 
-This repo contains the data of:
+This repo contains the code and data of:
 [VoiceBench: Benchmarking LLM-Based Voice Assistants](https://arxiv.org/abs/2410.17196)
+
+## News
+* **`2024.10.30`** We expanded the test samples in VoiceBench to include: 1) the complete set of open-ended QA from `alpacaeval`, and 2) multiple-choice QA from `openbookqa`.
 
 ## Leaderboard
 
@@ -44,14 +47,17 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 
 ### Available Data
 
-| Subset            | # Samples | Audio Source |
-|-------------------|:---------:|:------------:|
-| alpacaeval        |    199    |  Google TTS  |
-| alpacaeval_full   |    636    |  Google TTS  |
-| commoneval        |    200    |    Human     |
-| sd-qa             |    553    |    Human     |
-| ifeval            |    345    |  Google TTS  |
-| advbench          |    520    |  Google TTS  |
+Here's the updated table with an additional column for the task type:
+
+| Subset          | # Samples | Audio Source |       Task Type       |
+|-----------------|:---------:|:------------:|:---------------------:|
+| alpacaeval      |    199    |  Google TTS  |     Open-ended QA     |
+| alpacaeval_full |    636    |  Google TTS  |     Open-ended QA     |
+| commoneval      |    200    |    Human     |     Open-ended QA     |
+| openbookqa      |    636    |  Google TTS  |  Multiple-Choice QA   |
+| sd-qa           |    553    |    Human     |  Reference-Based QA   |
+| ifeval          |    345    |  Google TTS  | Instruction Following |
+| advbench        |    520    |  Google TTS  |        Safety         |
 
 
 **PS**: `alpacaeval` (used in our paper) contains `helpful_base` and `vicuna` data, while `alpacaeval_full` is constructed with the complete data.
