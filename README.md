@@ -51,9 +51,9 @@ Here's the updated table with an additional column for the task type:
 
 | Subset          | # Samples | Audio Source |       Task Type       |
 |-----------------|:---------:|:------------:|:---------------------:|
-| alpacaeval      |    199    |  Google TTS  |     Open-ended QA     |
-| alpacaeval_full |    636    |  Google TTS  |     Open-ended QA     |
-| commoneval      |    200    |    Human     |     Open-ended QA     |
+| alpacaeval      |    199    |  Google TTS  |     Open-Ended QA     |
+| alpacaeval_full |    636    |  Google TTS  |     Open-Ended QA     |
+| commoneval      |    200    |    Human     |     Open-Ended QA     |
 | openbookqa      |    455    |  Google TTS  |  Multiple-Choice QA   |
 | sd-qa           |    553    |    Human     |  Reference-Based QA   |
 | ifeval          |    345    |  Google TTS  | Instruction Following |
