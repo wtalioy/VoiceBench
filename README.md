@@ -54,7 +54,7 @@ Here's the updated table with an additional column for the task type:
 | alpacaeval      |    199    |  Google TTS  |     Open-ended QA     |
 | alpacaeval_full |    636    |  Google TTS  |     Open-ended QA     |
 | commoneval      |    200    |    Human     |     Open-ended QA     |
-| openbookqa      |    636    |  Google TTS  |  Multiple-Choice QA   |
+| openbookqa      |    455    |  Google TTS  |  Multiple-Choice QA   |
 | sd-qa           |    553    |    Human     |  Reference-Based QA   |
 | ifeval          |    345    |  Google TTS  | Instruction Following |
 | advbench        |    520    |  Google TTS  |        Safety         |
