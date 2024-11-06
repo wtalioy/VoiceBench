@@ -47,8 +47,6 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 
 ### Available Data
 
-Here's the updated table with an additional column for the task type:
-
 | Subset          | # Samples | Audio Source |       Task Type       |
 |-----------------|:---------:|:------------:|:---------------------:|
 | alpacaeval      |    199    |  Google TTS  |     Open-Ended QA     |
