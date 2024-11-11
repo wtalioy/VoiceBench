@@ -38,16 +38,16 @@ def generate_text(
             padding=True,
             padding_side="right",
         )["input_ids"],
-        device=llm.pre_user_suffix.device,
+        device=llm.pre_system.device,
     )
     prefix = torch.cat(
         [
-            llm.pre_user_suffix.expand(
+            llm.pre_system.expand(
                 bsz,
                 -1,
             ),
             user_prompt_text,
-            llm.prefix.expand(
+            llm.post_system.expand(
                 bsz,
                 -1,
             ),
