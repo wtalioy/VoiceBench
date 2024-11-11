@@ -8,7 +8,7 @@ from loguru import logger
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('--model', type=str, default='qwen2', choices=['naive', 'qwen2', 'diva'])
+    parser.add_argument('--model', type=str, default='qwen2', choices=list(model_cls_mapping.keys()))
     parser.add_argument('--data', type=str, default='alpacaeval')
     parser.add_argument('--split', type=str, default='test')
     parser.add_argument('--modality', type=str, default='audio', choices=['audio', 'text'])
