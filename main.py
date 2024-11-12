@@ -20,7 +20,7 @@ def main():
 
     # load model
     model = model_cls_mapping[args.model]()
-    data = data.select([0,1,2,3,4,5])
+    # data = data.select([0,1,2,3,4,5])
     # inference
     results = []
     for item in tqdm(data, total=len(data)):

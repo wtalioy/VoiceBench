@@ -4,7 +4,9 @@ This repo contains the code and data of:
 [VoiceBench: Benchmarking LLM-Based Voice Assistants](https://arxiv.org/abs/2410.17196)
 
 ## News
-* **`2024.10.30`** We expanded the test samples in VoiceBench to include: 1) the complete set of open-ended QA from `alpacaeval`, and 2) multiple-choice QA from `openbookqa`.
+* **`2024.11.12`** Added Mini-Omni2, GPT-4o-Audio, and Whisper-v3+GPT-4o to the leaderboard.
+
+* **`2024.10.30`** Expanded the test samples in VoiceBench to include: 1) the complete set of open-ended QA from `alpacaeval`, and 2) multiple-choice QA from `openbookqa`.
 
 ## Leaderboard
 
