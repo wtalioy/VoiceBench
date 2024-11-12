@@ -4,24 +4,23 @@ This repo contains the code and data of:
 [VoiceBench: Benchmarking LLM-Based Voice Assistants](https://arxiv.org/abs/2410.17196)
 
 ## News
-* **`2024.11.12`** Added Mini-Omni2, GPT-4o-Audio, and Whisper-v3+GPT-4o to the leaderboard.
+* **`2024.11.12`** Updated the VoiceBench Leaderboard to include: 1) Mini-Omni2, GPT-4o-Audio, and Whisper-v3+GPT-4o, and 2) multiple-choice QA from OpenBookQA.
 
 * **`2024.10.30`** Expanded the test samples in VoiceBench to include: 1) the complete set of open-ended QA from `alpacaeval`, and 2) multiple-choice QA from `openbookqa`.
 
 ## Leaderboard
 
-
-| Rank | Model                | AlpacaEval | CommonEval | SD-QA | IFEval | AdvBench | Overall |
-|------|----------------------|:----------:|:----------:|:-----:|:------:|:--------:|:-------:|
-| 1    | Whisper-v3+GPT-4o    |    4.80    |    4.47    | 75.77 | 76.51  |  98.27   |  87.19  |
-| 2    | GPT-4o-Audio         |    4.78    |    4.49    | 75.50 | 76.02  |  98.65   |  87.10  |
-| 3    | Whisper-v3+LLaMA-3.1 |    4.53    |    4.04    | 70.43 | 69.53  |  98.08   |  81.88  |
-| 4    | DiVA                 |    3.67    |    3.54    | 57.05 | 39.15  |  98.27   |  67.73  |
-| 5    | Qwen2-Audio          |    3.74    |    3.43    | 35.71 | 26.33  |  96.73   |  60.45  |
-| 6    | LLaMA-Omni           |    3.70    |    3.46    | 39.69 | 14.87  |  11.35   |  41.83  |
-| 7    | VITA                 |    3.38    |    2.15    | 27.94 | 22.82  |  26.73   |  37.62  |
-| 8    | Mini-Omni2           |    2.32    |    2.18    | 9.31  | 11.56  |  57.50   |  33.67  |
-| 9    | Mini-Omni            |    1.95    |    2.02    | 13.92 | 13.58  |  37.12   |  28.80  |
+| Rank | Model                | AlpacaEval | CommonEval | SD-QA | OpenBookQA | IFEval | AdvBench | Overall |
+|:----:|----------------------|:----------:|:----------:|:-----:|:----------:|:------:|:--------:|:-------:|
+|  1   | Whisper-v3+GPT-4o    |    4.80    |    4.47    | 75.77 |   92.97    | 76.51  |  98.27   |  88.15  |
+|  2   | GPT-4o-Audio         |    4.78    |    4.49    | 75.50 |   89.23    | 76.02  |  98.65   |  87.45  |
+|  3   | Whisper-v3+LLaMA-3.1 |    4.53    |    4.04    | 70.43 |   81.54    | 69.53  |  98.08   |  81.83  |
+|  4   | DiVA                 |    3.67    |    3.54    | 57.05 |   25.49    | 39.15  |  98.27   |  60.69  |
+|  5   | Qwen2-Audio          |    3.74    |    3.43    | 35.71 |   49.45    | 26.33  |  96.73   |  58.62  |
+|  6   | LLaMA-Omni           |    3.70    |    3.46    | 39.69 |   27.47    | 14.87  |  11.35   |  39.44  |
+|  7   | VITA                 |    3.38    |    2.15    | 27.94 |   29.01    | 22.82  |  26.73   |  36.18  |
+|  8   | Mini-Omni2           |    2.32    |    2.18    | 9.31  |   26.59    | 11.56  |  57.50   |  32.49  |
+|  9   | Mini-Omni            |    1.95    |    2.02    | 13.92 |   26.59    | 13.58  |  37.12   |  28.44  |
 
 
 We encourage you to submit new voice assistant results directly through the issue tracker. The ranking list will be updated accordingly.
