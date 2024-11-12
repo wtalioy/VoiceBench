@@ -8,14 +8,19 @@ This repo contains the code and data of:
 
 ## Leaderboard
 
-| Rank | Model                 |    AlpacaEval   |    CommonEval   |    SD-QA   |    IFEval   |   AdvBench   |   Overall   |
-|------|-----------------------|:---------------:|:---------------:|:----------:|:-----------:|:------------:|:-----------:|
-| 1    | Whisper-v3+LLaMA-3.1   | 4.68       | 4.04       | 70.43 | 69.53  | 98.08    | 74.50   |
-| 2    | DiVA                   | 3.86       | 3.54       | 57.05 | 39.15  | 98.27    | 64.02   |
-| 3    | Qwen2-Audio            | 3.89       | 3.43       | 35.71 | 26.33  | 96.73    | 59.83   |
-| 4    | Mini-Omni              | 2.25       | 2.02       | 13.92 | 13.58  | 37.12    | 41.56   |
-| 5    | LLaMA-Omni             | 3.95       | 3.46       | 39.69 | 14.87  | 11.35    | 40.21   |
-| 6    | VITA                   | 3.78       | 2.15       | 27.94 | 22.82  | 26.73    | 39.33   |
+
+| Rank | Model                | AlpacaEval | CommonEval | SD-QA | IFEval | AdvBench | Overall |
+|------|----------------------|:----------:|:----------:|:-----:|:------:|:--------:|:-------:|
+| 1    | Whisper-v3+GPT-4o    |    4.80    |    4.47    | 75.77 | 76.51  |  98.27   |  87.19  |
+| 2    | GPT-4o-Audio         |    4.78    |    4.49    | 75.50 | 76.02  |  98.65   |  87.10  |
+| 3    | Whisper-v3+LLaMA-3.1 |    4.53    |    4.04    | 70.43 | 69.53  |  98.08   |  81.88  |
+| 4    | DiVA                 |    3.67    |    3.54    | 57.05 | 39.15  |  98.27   |  67.73  |
+| 5    | Qwen2-Audio          |    3.74    |    3.43    | 35.71 | 26.33  |  96.73   |  60.45  |
+| 6    | LLaMA-Omni           |    3.70    |    3.46    | 39.69 | 14.87  |  11.35   |  41.83  |
+| 7    | VITA                 |    3.38    |    2.15    | 27.94 | 22.82  |  26.73   |  37.62  |
+| 8    | Mini-Omni2           |    2.32    |    2.18    | 9.31  | 11.56  |  57.50   |  33.67  |
+| 9    | Mini-Omni            |    1.95    |    2.02    | 13.92 | 13.58  |  37.12   |  28.80  |
+
 
 We encourage you to submit new voice assistant results directly through the issue tracker. The ranking list will be updated accordingly.
 
@@ -59,7 +64,7 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 | advbench        |    520    |  Google TTS  |        Safety         |
 
 
-**PS**: `alpacaeval` (used in our paper) contains `helpful_base` and `vicuna` data, while `alpacaeval_full` is constructed with the complete data.
+**PS**: `alpacaeval` contains `helpful_base` and `vicuna` data, while `alpacaeval_full` is constructed with the complete data.
 
 
 ## Evaluation
