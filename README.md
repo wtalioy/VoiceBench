@@ -105,6 +105,7 @@ python evaluate.py --src_file result-naive-alpacaeval-test-audio.jsonl --evaluat
     - Use `qa` for `sd-qa`.
     - Use `ifeval` for `ifeval`.
     - Use `harm` for `advbench`.
+    - Use `mcq` for `openbookqa`.
 
 ## Citation
 If you use the VoiceBench dataset in your research, please cite the following paper:
