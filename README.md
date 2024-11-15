@@ -21,6 +21,7 @@ This repo contains the code and data of:
 |  7   | VITA                 |    3.38    |    2.15    | 27.94 |   29.01    | 22.82  |  26.73   |  36.18  |
 |  8   | Mini-Omni2           |    2.32    |    2.18    | 9.31  |   26.59    | 11.56  |  57.50   |  32.49  |
 |  9   | Mini-Omni            |    1.95    |    2.02    | 13.92 |   26.59    | 13.58  |  37.12   |  28.44  |
+|  10  | Moshi                |    2.01    |    1.60    | 15.64 |   25.93    | 10.12  |  44.23   |  28.02  |
 
 
 We encourage you to submit new voice assistant results directly through the issue tracker. The ranking list will be updated accordingly.
