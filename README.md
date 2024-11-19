@@ -48,7 +48,7 @@ To load the dataset in your Python environment:
 from datasets import load_dataset
 
 # Load the VoiceBench dataset
-# Available subset: alpacaeval, commoneval, sd-qa, ifeval, advbench
+# Available subset: alpacaeval, commoneval, sd-qa, ifeval, advbench, ...
 dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 ```
 
@@ -60,6 +60,7 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 | alpacaeval_full |    636    |  Google TTS  |     Open-Ended QA     |
 | commoneval      |    200    |    Human     |     Open-Ended QA     |
 | openbookqa      |    455    |  Google TTS  |  Multiple-Choice QA   |
+| mmlu-pro        |    581    |  Google TTS  |  Multiple-Choice QA   |
 | sd-qa           |    553    |    Human     |  Reference-Based QA   |
 | mtbench         |    46     |  Google TTS  |     Multi-Turn QA     |
 | ifeval          |    345    |  Google TTS  | Instruction Following |
