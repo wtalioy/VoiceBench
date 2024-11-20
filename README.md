@@ -10,18 +10,20 @@ This repo contains the code and data of:
 
 ## Leaderboard
 
-| Rank | Model                | AlpacaEval | CommonEval | SD-QA | OpenBookQA | IFEval | AdvBench | Overall |
-|:----:|----------------------|:----------:|:----------:|:-----:|:----------:|:------:|:--------:|:-------:|
-|  1   | Whisper-v3+GPT-4o    |    4.80    |    4.47    | 75.77 |   92.97    | 76.51  |  98.27   |  88.15  |
-|  2   | GPT-4o-Audio         |    4.78    |    4.49    | 75.50 |   89.23    | 76.02  |  98.65   |  87.45  |
-|  3   | Whisper-v3+LLaMA-3.1 |    4.53    |    4.04    | 70.43 |   81.54    | 69.53  |  98.08   |  81.83  |
-|  4   | DiVA                 |    3.67    |    3.54    | 57.05 |   25.49    | 39.15  |  98.27   |  60.69  |
-|  5   | Qwen2-Audio          |    3.74    |    3.43    | 35.71 |   49.45    | 26.33  |  96.73   |  58.62  |
-|  6   | LLaMA-Omni           |    3.70    |    3.46    | 39.69 |   27.47    | 14.87  |  11.35   |  39.44  |
-|  7   | VITA                 |    3.38    |    2.15    | 27.94 |   29.01    | 22.82  |  26.73   |  36.18  |
-|  8   | Mini-Omni2           |    2.32    |    2.18    | 9.31  |   26.59    | 11.56  |  57.50   |  32.49  |
-|  9   | Mini-Omni            |    1.95    |    2.02    | 13.92 |   26.59    | 13.58  |  37.12   |  28.44  |
-|  10  | Moshi                |    2.01    |    1.60    | 15.64 |   25.93    | 10.12  |  44.23   |  28.02  |
+| Rank | Model                         | AlpacaEval | CommonEval | SD-QA | OpenBookQA | IFEval | AdvBench | Overall |
+|:----:|-------------------------------|:----------:|:----------:|:-----:|:----------:|:------:|:--------:|:-------:|
+|  1   | Whisper-v3-large+GPT-4o       |    4.80    |    4.47    | 75.77 |   92.97    | 76.51  |  98.27   |  88.15  |
+|  2   | GPT-4o-Audio                  |    4.78    |    4.49    | 75.50 |   89.23    | 76.02  |  98.65   |  87.45  |
+|  3   | Whisper-v3-large+LLaMA-3.1-8B |    4.53    |    4.04    | 70.43 |   81.54    | 69.53  |  98.08   |  81.83  |
+|  4   | Whisper-v3-turbo+LLaMA-3.1-8B |    4.55    |    4.02    | 58.23 |   72.09    | 71.12  |  98.46   |  78.55  |
+|  5   | Whisper-v3-turbo+LLaMA-3.2-3B |    4.45    |    3.82    | 49.28 |   60.66    | 69.71  |  98.08   |  73.86  |
+|  6   | DiVA                          |    3.67    |    3.54    | 57.05 |   25.49    | 39.15  |  98.27   |  60.69  |
+|  7   | Qwen2-Audio                   |    3.74    |    3.43    | 35.71 |   49.45    | 26.33  |  96.73   |  58.62  |
+|  8   | LLaMA-Omni                    |    3.70    |    3.46    | 39.69 |   27.47    | 14.87  |  11.35   |  39.44  |
+|  9   | VITA                          |    3.38    |    2.15    | 27.94 |   29.01    | 22.82  |  26.73   |  36.18  |
+|  10  | Mini-Omni2                    |    2.32    |    2.18    | 9.31  |   26.59    | 11.56  |  57.50   |  32.49  |
+|  11  | Mini-Omni                     |    1.95    |    2.02    | 13.92 |   26.59    | 13.58  |  37.12   |  28.44  |
+|  12  | Moshi                         |    2.01    |    1.60    | 15.64 |   25.93    | 10.12  |  44.23   |  28.02  |
 
 
 We encourage you to submit new voice assistant results directly through the issue tracker. The ranking list will be updated accordingly.
@@ -60,7 +62,7 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 | alpacaeval_full |    636    |  Google TTS  |     Open-Ended QA     |
 | commoneval      |    200    |    Human     |     Open-Ended QA     |
 | openbookqa      |    455    |  Google TTS  |  Multiple-Choice QA   |
-| mmlu-pro        |    581    |  Google TTS  |  Multiple-Choice QA   |
+| mmlu-pro        |    817    |  Google TTS  |  Multiple-Choice QA   |
 | sd-qa           |    553    |    Human     |  Reference-Based QA   |
 | mtbench         |    46     |  Google TTS  |     Multi-Turn QA     |
 | ifeval          |    345    |  Google TTS  | Instruction Following |
