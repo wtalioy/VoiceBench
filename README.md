@@ -62,7 +62,7 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 | alpacaeval_full |    636    |  Google TTS  |     Open-Ended QA     |
 | commoneval      |    200    |    Human     |     Open-Ended QA     |
 | openbookqa      |    455    |  Google TTS  |  Multiple-Choice QA   |
-| mmlu-pro        |    2,691  |  Google TTS  |  Multiple-Choice QA   |
+| mmlu-pro        |    3,074  |  Google TTS  |  Multiple-Choice QA   |
 | sd-qa           |    553    |    Human     |  Reference-Based QA   |
 | mtbench         |    46     |  Google TTS  |     Multi-Turn QA     |
 | ifeval          |    345    |  Google TTS  | Instruction Following |
