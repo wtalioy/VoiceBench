@@ -4,8 +4,8 @@ This repo contains the code and data of:
 [VoiceBench: Benchmarking LLM-Based Voice Assistants](https://arxiv.org/abs/2410.17196)
 
 ## News
+* **`2024.11.24`** Expanded the test samples in VoiceBench to include `mmsu`, covering 12 diverse domains from `mmlu-pro`.
 * **`2024.11.12`** Updated the VoiceBench Leaderboard to include: 1) Mini-Omni2, GPT-4o-Audio, and Whisper-v3+GPT-4o, and 2) multiple-choice QA from OpenBookQA.
-
 * **`2024.10.30`** Expanded the test samples in VoiceBench to include: 1) the complete set of open-ended QA from `alpacaeval`, and 2) multiple-choice QA from `openbookqa`.
 
 ## Leaderboard
@@ -62,7 +62,7 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 | alpacaeval_full |    636    |  Google TTS  |     Open-Ended QA     |
 | commoneval      |    200    |    Human     |     Open-Ended QA     |
 | openbookqa      |    455    |  Google TTS  |  Multiple-Choice QA   |
-| mmlu-pro        |    3,074  |  Google TTS  |  Multiple-Choice QA   |
+| mmsu            |    3,074  |  Google TTS  |  Multiple-Choice QA   |
 | sd-qa           |    553    |    Human     |  Reference-Based QA   |
 | mtbench         |    46     |  Google TTS  |     Multi-Turn QA     |
 | ifeval          |    345    |  Google TTS  | Instruction Following |
