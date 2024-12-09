@@ -8,6 +8,17 @@ class MCQEvaluator(Evaluator):
         if response.startswith('<1>') or response.startswith('<2>') or response.startswith('<3>'):
             response = response[3:].strip()
         for template in [
+            "答案是[CHOICE]",
+            "答案是 [CHOICE]",
+            "答案是选项[CHOICE]",
+            "答案应该是[CHOICE]",
+            "答案应该是 [CHOICE]",
+            "答案就是选项[CHOICE]",
+            "答案是‘[CHOICE]",
+            "答案选[CHOICE]",
+            "[CHOICE]是正确",
+            "the answer is '[CHOICE]'",
+            '[CHOICE] is the best answer',
             'the answer is [CHOICE]',
             'the correct answer is [CHOICE]',
             'would select [CHOICE]',

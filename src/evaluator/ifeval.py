@@ -152,6 +152,9 @@ def read_prompt_to_response_dict(data):
         tmp = example["response"]
         if tmp.startswith('<1>') or tmp.startswith('<2>') or tmp.startswith('<3>'):
             tmp = tmp[3:].strip()
+        if tmp.endswith('<|user|>'):
+            tmp = tmp[:-8].strip()
+
         return_dict[example["prompt"]] = tmp
     return return_dict
 
