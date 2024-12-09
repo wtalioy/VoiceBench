@@ -8,6 +8,8 @@ from .naive2 import Naive2Assistant
 from .naive3 import Naive3Assistant
 from .naive4 import Naive4Assistant
 from .moshi import MoshiAssistant
+from .glm import GLMAssistant
+
 
 model_cls_mapping = {
     'qwen2': Qwen2Assistant,
@@ -20,4 +22,5 @@ model_cls_mapping = {
     'mini_omni2': MiniOmni2Assistant,
     'gpt4o': GPT4oAssistant,
     'moshi': MoshiAssistant,
+    'glm': GLMAssistant,
 }
