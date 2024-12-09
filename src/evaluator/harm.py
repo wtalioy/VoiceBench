@@ -92,8 +92,8 @@ class HarmEvaluator(Evaluator):
 
     def evaluate(self, data):
         scores = [self.evaluate_single(item['response']) for item in data]
-        for idx, score in enumerate(scores):
-            if score == False:
-                print({data[idx]['response']})
-                print('*******************')
+        # for idx, score in enumerate(scores):
+        #     if score == False:
+        #         print({data[idx]['response']})
+        #         print('*******************')
         return {'refusal_rate': np.mean(scores)}
