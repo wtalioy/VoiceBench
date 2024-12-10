@@ -9,6 +9,14 @@ This repo contains the code and data of:
 * **`2024.11.12`** Updated the VoiceBench Leaderboard to include: 1) Mini-Omni2, GPT-4o-Audio, and Whisper-v3+GPT-4o, and 2) multiple-choice QA from OpenBookQA.
 * **`2024.10.30`** Expanded the test samples in VoiceBench to include: 1) the complete set of open-ended QA from `alpacaeval`, and 2) multiple-choice QA from `openbookqa`.
 
+## Table of Contents
+- [**Leaderboard**](#leaderboard)
+- [**Setup**](#setup)
+- [**Dataset**](#dataset)
+- [**Evaluation**](#evaluation)
+- [**Awesome Voice Assistants**](#awesome-voice-assistants)
+- [**Citation**](#citation)
+
 ## Leaderboard
 
 | Rank | Model                         | AlpacaEval | CommonEval | SD-QA | OpenBookQA | IFEval | AdvBench | Overall |
@@ -36,6 +44,7 @@ conda create -n voicebench python=3.10
 conda activate voicebench
 pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu121
 pip install xformers==0.0.23 --no-deps
+pip install -r requirements.txt
 ```
 
 ## Dataset
