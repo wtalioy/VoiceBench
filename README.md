@@ -112,8 +112,22 @@ python evaluate.py --src_file result-naive-alpacaeval-test-audio.jsonl --evaluat
     - Use `harm` for `advbench`.
     - Use `mcq` for `openbookqa`.
 
+## Awesome Voice Assistants
+| Title                                                                                                                                                                                                                                                                                                                       |    Date    |                       Code                       |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|:------------------------------------------------:|
+| [**GLM-4-Voice: Towards Intelligent and Human-Like End-to-End Spoken Chatbot**](https://arxiv.org/abs/2412.02612) &nbsp; ![Star](https://img.shields.io/github/stars/THUDM/GLM-4-Voice.svg?style=social&label=Star)                                                                                                         | 2024-12-03 |  [Github](https://github.com/THUDM/GLM-4-Voice)  |
+| [**Advancing Speech Language Models by Scaling Supervised Fine-Tuning with Over 60,000 Hours of Synthetic Speech Dialogue Data**](https://arxiv.org/abs/2412.01078)                                                                                                                                                         | 2024-12-02 |                        --                        |
+| [**Mini-Omni2: Towards Open-source GPT-4o with Vision, Speech and Duplex Capabilities**](https://arxiv.org/abs/2410.11190) &nbsp; ![Star](https://img.shields.io/github/stars/gpt-omni/mini-omni2.svg?style=social&label=Star)                                                                                              | 2024-10-15 | [Github](https://github.com/gpt-omni/mini-omni2) |
+| [**Distilling an End-to-End Voice Assistant Without Instruction Training Data**](https://arxiv.org/abs/2410.02678)                                                                                                                                                                                                          | 2024-10-03 |                        --                        |
+| [**Moshi: a Speech-Text Foundation Model for Real-Time Dialogue**](https://arxiv.org/abs/2410.00037) &nbsp; ![Star](https://img.shields.io/github/stars/kyutai-labs/moshi.svg?style=social&label=Star)                                                                                                                      | 2024-09-17 |  [Github](https://github.com/kyutai-labs/moshi)  |
+| [**LLaMA-Omni: Seamless Speech Interaction with Large Language Models**](https://arxiv.org/abs/2409.06666) &nbsp; ![Star](https://img.shields.io/github/stars/ictnlp/LLaMA-Omni.svg?style=social&label=Star)                                                                                                                | 2024-09-10 |  [Github](https://github.com/ictnlp/LLaMA-Omni)  |
+| [**Mini-Omni: Language Models Can Hear, Talk While Thinking in Streaming**](https://arxiv.org/abs/2408.16725) &nbsp; ![Star](https://img.shields.io/github/stars/gpt-omni/mini-omni.svg?style=social&label=Star)                                                                                                            | 2024-08-29 | [Github](https://github.com/gpt-omni/mini-omni)  |
+| [**VITA: Towards Open-Source Interactive Omni Multimodal LLM**](https://arxiv.org/abs/2408.05211) &nbsp; ![Star](https://img.shields.io/github/stars/VITA-MLLM/VITA.svg?style=social&label=Star)                                                                                                                            | 2024-08-09 |   [Github](https://github.com/VITA-MLLM/VITA)    |
+| [**Qwen2-Audio Technical Report**](https://arxiv.org/abs/2407.10759) &nbsp; ![Star](https://img.shields.io/github/stars/QwenLM/Qwen2-Audio.svg?style=social&label=Star)                                                                                                                                                     | 2024-07-15 | [Github](https://github.com/QwenLM/Qwen2-Audio)  |
+
+
 ## Citation
-If you use the VoiceBench dataset in your research, please cite the following paper:
+If you use the VoiceBench in your research, please cite the following paper:
 ```
 @article{chen2024voicebench,
   title={VoiceBench: Benchmarking LLM-Based Voice Assistants},
