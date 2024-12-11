@@ -9,6 +9,7 @@ from .naive3 import Naive3Assistant
 from .naive4 import Naive4Assistant
 from .moshi import MoshiAssistant
 from .glm import GLMAssistant
+from .ultravox import UltravoxAssistant
 
 
 model_cls_mapping = {
@@ -23,4 +24,5 @@ model_cls_mapping = {
     'gpt4o': GPT4oAssistant,
     'moshi': MoshiAssistant,
     'glm': GLMAssistant,
+    'ultravox': UltravoxAssistant,
 }
