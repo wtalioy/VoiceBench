@@ -15,8 +15,9 @@ class MoshiAssistant(VoiceAssistant):
         self.feature_extractor = AutoFeatureExtractor.from_pretrained('kmhf/hf-moshiko')
 
     def generate_audio(
-            self,
-            audio,
+        self,
+        audio,
+        max_new_tokens=2048,
     ):
         assert audio['sampling_rate'] == 16000
         audio = audio['array']
@@ -35,7 +36,7 @@ class MoshiAssistant(VoiceAssistant):
         input_ids = torch.ones((1, num_tokens), device=self.device, dtype=torch.int64) * self.tokenizer.encode("<pad>")[0]
 
         output = self.model.generate(input_ids=input_ids, user_input_values=user_input_values.input_values,
-                                moshi_input_values=moshi_input_values, max_new_tokens=2048, return_audio_waveforms=False)
+                                moshi_input_values=moshi_input_values, max_new_tokens=max_new_tokens, return_audio_waveforms=False)
 
         text_tokens = output.cpu().numpy()
 

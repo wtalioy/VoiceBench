@@ -15,6 +15,7 @@ class GPT4oAssistant(VoiceAssistant):
     def generate_audio(
         self,
         audio,
+        max_new_tokens=2048,
     ):
         # Write the audio data to an in-memory buffer in WAV format
         buffer = io.BytesIO()
@@ -28,7 +29,7 @@ class GPT4oAssistant(VoiceAssistant):
         completion = self.client.chat.completions.create(
             model="gpt-4o-audio-preview",
             modalities=["text"],
-            max_tokens=1024,
+            max_tokens=max_new_tokens,
             messages=[
                 {"role": "system", "content": "You are a helpful assistant who tries to help answer the user's question."},
                 {"role": "user", "content": [{"type": "input_audio", "input_audio": {"data": encoded_string, "format": 'wav'}}]},

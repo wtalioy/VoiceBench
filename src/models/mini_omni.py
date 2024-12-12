@@ -131,7 +131,7 @@ def get_input_ids_whisper_ATBatch(mel, leng, whispermodel, device):
     return torch.stack([audio_feature, audio_feature]), stacked_inputids
 
 
-def A1_T2(fabric, audio_feature, input_ids, leng, model, text_tokenizer):
+def A1_T2(fabric, audio_feature, input_ids, leng, model, text_tokenizer, max_new_tokens):
     with fabric.init_tensor():
         model.set_kv_cache(batch_size=1)
     tokenlist = generate_AT(
@@ -140,7 +140,7 @@ def A1_T2(fabric, audio_feature, input_ids, leng, model, text_tokenizer):
         input_ids,
         [leng],
         ["AT"],
-        max_returned_tokens=2048,
+        max_returned_tokens=max_new_tokens,
         temperature=0.9,
         top_k=1,
         eos_id_a=_eoa,
@@ -215,6 +215,7 @@ class MiniOmniAssistant(VoiceAssistant):
     def generate_audio(
         self,
         audio,
+        max_new_tokens=2048,
     ):
         assert audio['sampling_rate'] == 16000
         audio = audio['array'].astype(np.float32)
@@ -224,7 +225,7 @@ class MiniOmniAssistant(VoiceAssistant):
             special_token_a=_pad_a, special_token_t=_answer_t
         )
         response = A1_T2(
-            self.fabric, audio_feature, input_ids, leng, self.model, self.text_tokenizer
+            self.fabric, audio_feature, input_ids, leng, self.model, self.text_tokenizer, max_new_tokens
         )
         return response
 

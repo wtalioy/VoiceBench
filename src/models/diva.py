@@ -10,10 +10,11 @@ class DiVAAssistant(VoiceAssistant):
     def generate_audio(
         self,
         audio,
+        max_new_tokens=2048,
     ):
         assert audio['sampling_rate'] == 16000
         audio = audio['array']
-        return self.model.generate([audio], max_new_tokens=2048)[0]
+        return self.model.generate([audio], max_new_tokens=max_new_tokens)[0]
 
     def generate_text(
         self,

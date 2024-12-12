@@ -33,6 +33,7 @@ class Naive2Assistant(VoiceAssistant):
     def generate_audio(
         self,
         audio,
+        max_new_tokens=2048,
     ):
         transcript = self.asr(audio, generate_kwargs={"language": "english", 'return_timestamps': True})[
             'text'].strip()
@@ -46,7 +47,7 @@ class Naive2Assistant(VoiceAssistant):
             client=self.client,
             model='gpt-4o',
             messages=messages,
-            max_tokens=2048,
+            max_tokens=max_new_tokens,
             frequency_penalty=0,
             presence_penalty=0,
             stop=None,

@@ -10,8 +10,9 @@ class Qwen2Assistant(VoiceAssistant):
                                                                         cache_dir='./cache', torch_dtype='auto')
 
     def generate_audio(
-            self,
-            audio,
+        self,
+        audio,
+        max_new_tokens=2048,
     ):
         assert audio['sampling_rate'] == 16000
         audio = audio['array']
@@ -24,7 +25,7 @@ class Qwen2Assistant(VoiceAssistant):
         inputs = self.processor(text=inputs, audios=audios, return_tensors="pt", padding=True)
         inputs = inputs.to("cuda")
 
-        generate_ids = self.model.generate(**inputs, max_length=2048)
+        generate_ids = self.model.generate(**inputs, max_length=max_new_tokens)
         generate_ids = generate_ids[:, inputs.input_ids.size(1):]
 
         response = self.processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]

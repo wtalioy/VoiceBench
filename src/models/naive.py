@@ -44,6 +44,7 @@ class NaiveAssistant(VoiceAssistant):
     def generate_audio(
         self,
         audio,
+        max_new_tokens=2048,
     ):
         transcript = self.asr(audio, generate_kwargs={"language": "english", 'return_timestamps': True})[
             'text'].strip()
@@ -55,7 +56,7 @@ class NaiveAssistant(VoiceAssistant):
         ]
         outputs = self.llm(
             messages,
-            max_new_tokens=2048,
+            max_new_tokens=max_new_tokens,
         )
         response = outputs[0]["generated_text"][-1]['content']
         return response
@@ -75,3 +76,7 @@ class NaiveAssistant(VoiceAssistant):
         )
         response = outputs[0]["generated_text"][-1]['content']
         return response
+
+
+
+

@@ -25,8 +25,8 @@ class GLMAssistant(VoiceAssistant):
     def generate_audio(
         self,
         audio,
+        max_new_tokens=4096,
     ):
-        history = ({"role": "user", "content": {"path": 'xxx'}})
         audio_tokens = extract_speech_token(
             self.whisper_model, self.feature_extractor, [tuple([torch.from_numpy(audio['array']).unsqueeze(0), audio['sampling_rate']])]
         )[0]
@@ -41,7 +41,7 @@ class GLMAssistant(VoiceAssistant):
         inputs = self.glm_tokenizer([inputs], return_tensors="pt")
         inputs = inputs.to('cuda')
 
-        rtn = self.glm_model.generate(**inputs, max_new_tokens=4096)[:, inputs.input_ids.size(1):]
+        rtn = self.glm_model.generate(**inputs, max_new_tokens=max_new_tokens)[:, inputs.input_ids.size(1):]
         text_tokens = []
         audio_offset = self.glm_tokenizer.convert_tokens_to_ids('<|audio_0|>')
         for item in rtn[0]:
