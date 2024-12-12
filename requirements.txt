@@ -21,7 +21,7 @@ scipy==1.14.1
 sentencepiece==0.1.99
 torchmetrics==1.4.2
 tqdm==4.66.5
-transformers @ git+https://github.com/huggingface/transformers@e15687fffe5c9d20598a19aeab721ae0a7580f8a
+transformers==4.47.0
 triton==2.1.0
 wrapt==1.16.0
 xxhash==3.5.0
