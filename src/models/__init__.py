@@ -10,7 +10,7 @@ from .naive4 import Naive4Assistant
 from .moshi import MoshiAssistant
 from .glm import GLMAssistant
 from .ultravox import UltravoxAssistant
-
+from .ichigo import IchigoeAssistant
 
 model_cls_mapping = {
     'qwen2': Qwen2Assistant,
@@ -25,4 +25,5 @@ model_cls_mapping = {
     'moshi': MoshiAssistant,
     'glm': GLMAssistant,
     'ultravox': UltravoxAssistant,
+    'ichigo': IchigoeAssistant,
 }
