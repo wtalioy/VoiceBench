@@ -23,6 +23,6 @@ class VoiceAssistant:
         self,
         audio,
     ):
-        tmp = time.perf_counter()()
+        tmp = time.perf_counter()
         self.generate_audio(audio, max_new_tokens=1)
-        return time.perf_counter()() - tmp
+        return time.perf_counter() - tmp
