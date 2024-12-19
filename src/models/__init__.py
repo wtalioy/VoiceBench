@@ -11,6 +11,7 @@ from .moshi import MoshiAssistant
 from .glm import GLMAssistant
 from .ultravox import UltravoxAssistant
 from .ichigo import IchigoeAssistant
+from .megrez import MegrezAssistant
 
 model_cls_mapping = {
     'qwen2': Qwen2Assistant,
@@ -26,4 +27,5 @@ model_cls_mapping = {
     'glm': GLMAssistant,
     'ultravox': UltravoxAssistant,
     'ichigo': IchigoeAssistant,
+    'megrez': MegrezAssistant,
 }
