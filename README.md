@@ -85,7 +85,7 @@ dataset = load_dataset("hlt-lab/voicebench", 'alpacaeval')
 | advbench        |    520    |  Google TTS  |        Safety         |
 
 
-**PS**: `alpacaeval` contains `helpful_base` and `vicuna` data, while `alpacaeval_full` is constructed with the complete data.
+**PS**: `alpacaeval` contains `helpful_base` and `vicuna` data, while `alpacaeval_full` is constructed with the complete data. `alpacaeval_full` is used in the leaderboard.
 
 
 ## Evaluation
