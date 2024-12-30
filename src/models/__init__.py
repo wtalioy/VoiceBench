@@ -12,6 +12,8 @@ from .glm import GLMAssistant
 from .ultravox import UltravoxAssistant
 from .ichigo import IchigoeAssistant
 from .megrez import MegrezAssistant
+from .meralion import MERaLiONAssistant
+
 
 model_cls_mapping = {
     'qwen2': Qwen2Assistant,
@@ -28,4 +30,5 @@ model_cls_mapping = {
     'ultravox': UltravoxAssistant,
     'ichigo': IchigoeAssistant,
     'megrez': MegrezAssistant,
+    'meralion': MERaLiONAssistant,
 }

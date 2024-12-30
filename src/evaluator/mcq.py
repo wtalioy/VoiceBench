@@ -17,6 +17,7 @@ class MCQEvaluator(Evaluator):
             "答案是‘[CHOICE]",
             "答案选[CHOICE]",
             "[CHOICE]是正确",
+            'answer is **',
             "the answer is '[CHOICE]'",
             '[CHOICE] is the best answer',
             'the answer is [CHOICE]',
