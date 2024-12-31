@@ -13,7 +13,7 @@ from .ultravox import UltravoxAssistant
 from .ichigo import IchigoeAssistant
 from .megrez import MegrezAssistant
 from .meralion import MERaLiONAssistant
-
+from .lyra import LyraMiniAssistant
 
 model_cls_mapping = {
     'qwen2': Qwen2Assistant,
@@ -31,4 +31,5 @@ model_cls_mapping = {
     'ichigo': IchigoeAssistant,
     'megrez': MegrezAssistant,
     'meralion': MERaLiONAssistant,
+    'lyra_mini': LyraMiniAssistant,
 }
