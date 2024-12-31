@@ -126,7 +126,7 @@ python evaluate.py --src_file result-naive-alpacaeval-test-audio.jsonl --evaluat
     - Use `qa` for `sd-qa`.
     - Use `ifeval` for `ifeval`.
     - Use `harm` for `advbench`.
-    - Use `mcq` for `openbookqa`.
+    - Use `mcq` for `openbookqa` and `mmsu`.
 
 ## Awesome Voice Assistants
 | Title                                                                                                                                                                                                                                                |    Date    |                        Code                        |
