@@ -10,25 +10,9 @@ import os
 from huggingface_hub import snapshot_download
 
 
-class LyraMiniAssistant(VoiceAssistant):
-    def __init__(self):
+class LyraAssistant(VoiceAssistant):
+    def load_model(self, model_path):
         disable_torch_init()
-        if not os.path.exists("model_zoo/vision/Qwen2VL_2B_ViT"):
-            snapshot_download(
-                repo_id="zszhong/Lyra_Qwen2VL_2B_ViT",
-                local_dir="model_zoo/vision/Qwen2VL_2B_ViT",
-            )
-        if not os.path.exists('model_zoo/audio/whisper-large-v3-turbo'):
-            snapshot_download(
-                repo_id="openai/whisper-large-v3-turbo",
-                local_dir='model_zoo/audio/whisper-large-v3-turbo',
-            )
-        if not os.path.exists('model_zoo/Lyra_Mini_3B'):
-            snapshot_download(
-                repo_id="zszhong/Lyra_Mini_3B",
-                local_dir='model_zoo/Lyra_Mini_3B',
-            )
-        model_path = 'model_zoo/Lyra_Mini_3B'
         model_name = get_model_name_from_path(model_path)
         tokenizer, model, image_processor, _, speech_processor = load_pretrained_model(model_path, None,
                                                                                        model_name, False,
@@ -55,10 +39,13 @@ class LyraMiniAssistant(VoiceAssistant):
         status = model.load_state_dict(mm_projector_weights, strict=False)
         self.model = self.model.cuda()
 
+    def download_model(self):
+        raise NotImplementedError
+
     def generate_audio(
         self,
         audio,
-        max_new_tokens=512,
+        max_new_tokens=2048,
     ):
         image_tensor = None
         wav = torch.Tensor(audio['array'])
@@ -85,18 +72,64 @@ class LyraMiniAssistant(VoiceAssistant):
         conv.append_message(conv.roles[1], None)
         prompt = conv.get_prompt()
         input_ids = tokenizer_speech_token(prompt, self.tokenizer, return_tensors='pt').unsqueeze(0).to(self.model.device)
-
-        outputs = self.model.generate(
-            input_ids,
-            images=image_tensor,
-            speeches=speech_tensor,
-            do_sample=True,
-            temperature=0.7,
-            max_new_tokens=max_new_tokens,
-            bos_token_id=151643,  # Begin of sequence token
-            eos_token_id=[151645, 151643],  # End of sequence token
-            pad_token_id=151643,  # Pad token
-            use_cache=True)
+        with torch.inference_mode():
+            outputs = self.model.generate(
+                input_ids,
+                images=image_tensor,
+                speeches=speech_tensor,
+                do_sample=True,
+                temperature=0.7,
+                max_new_tokens=max_new_tokens,
+                bos_token_id=151643,  # Begin of sequence token
+                eos_token_id=[151645, 151643],  # End of sequence token
+                pad_token_id=151643,  # Pad token
+                use_cache=True)
         output_ids, _ = outputs
         outputs = self.tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
         return outputs
+
+
+class LyraMiniAssistant(LyraAssistant):
+    def __init__(self):
+        self.download_model()
+        self.load_model('model_zoo/Lyra_Mini_3B')
+
+    def download_model(self):
+        if not os.path.exists("model_zoo/vision/Qwen2VL_2B_ViT"):
+            snapshot_download(
+                repo_id="zszhong/Lyra_Qwen2VL_2B_ViT",
+                local_dir="model_zoo/vision/Qwen2VL_2B_ViT",
+            )
+        if not os.path.exists('model_zoo/audio/whisper-large-v3-turbo'):
+            snapshot_download(
+                repo_id="openai/whisper-large-v3-turbo",
+                local_dir='model_zoo/audio/whisper-large-v3-turbo',
+            )
+        if not os.path.exists('model_zoo/Lyra_Mini_3B'):
+            snapshot_download(
+                repo_id="zszhong/Lyra_Mini_3B",
+                local_dir='model_zoo/Lyra_Mini_3B',
+            )
+
+
+class LyraBaseAssistant(LyraAssistant):
+    def __init__(self):
+        self.download_model()
+        self.load_model('model_zoo/Lyra_Base_9B')
+
+    def download_model(self):
+        if not os.path.exists("model_zoo/vision/Qwen2VL_7B_ViT"):
+            snapshot_download(
+                repo_id="zszhong/Lyra_Qwen2VL_7B_ViT",
+                local_dir="model_zoo/vision/Qwen2VL_7B_ViT",
+            )
+        if not os.path.exists('model_zoo/audio/whisper-large-v3'):
+            snapshot_download(
+                repo_id="openai/whisper-large-v3",
+                local_dir='model_zoo/audio/whisper-large-v3',
+            )
+        if not os.path.exists('model_zoo/Lyra_Base_9B'):
+            snapshot_download(
+                repo_id="zszhong/Lyra_Base_9B",
+                local_dir='model_zoo/Lyra_Base_9B',
+            )
