@@ -15,8 +15,10 @@ class MCQEvaluator(Evaluator):
             "答案应该是 [CHOICE]",
             "答案就是选项[CHOICE]",
             "答案是‘[CHOICE]",
+            "是[CHOICE]：",
             "答案选[CHOICE]",
             "[CHOICE]是正确",
+            "选项[CHOICE]是最合适的",
             'answer is **',
             "the answer is '[CHOICE]'",
             '[CHOICE] is the best answer',
@@ -62,6 +64,14 @@ class MCQEvaluator(Evaluator):
             'answer is ([CHOICE])',
             "select option \"[CHOICE]\"",
             "is: [CHOICE]",
+            "is likely '[CHOICE]'",
+            "is option '[CHOICE]'",
+            "would be '[CHOICE]'",
+            "is the **[CHOICE]** ",
+            "the answer to the question is '[CHOICE]'",
+            "question is **[CHOICE]**",
+            "known as '[CHOICE]'",
+            "is '[CHOICE])",
             " [CHOICE].",
             " [CHOICE],",
             " [CHOICE]:",
@@ -90,8 +100,8 @@ class MCQEvaluator(Evaluator):
         elif 'the best option from the given choices would be a scorpion (a)' in response:
             return 'A'
         else:
-            # print({response})
-            # print('====')
+            print({response})
+            print('====')
             return None
 
 

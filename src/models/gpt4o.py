@@ -11,6 +11,7 @@ import soundfile as sf
 class GPT4oAssistant(VoiceAssistant):
     def __init__(self):
         self.client = OpenAI()
+        self.model_name = "gpt-4o-audio-preview"
 
     def generate_audio(
         self,
@@ -27,7 +28,7 @@ class GPT4oAssistant(VoiceAssistant):
         encoded_string = base64.b64encode(wav_data).decode('utf-8')
 
         completion = self.client.chat.completions.create(
-            model="gpt-4o-audio-preview",
+            model=self.model_name,
             modalities=["text"],
             max_tokens=max_new_tokens,
             messages=[
@@ -37,3 +38,9 @@ class GPT4oAssistant(VoiceAssistant):
         )
 
         return completion.choices[0].message.content
+
+
+class GPT4oMiniAssistant(VoiceAssistant):
+    def __init__(self):
+        self.client = OpenAI()
+        self.model_name = "gpt-4o-mini-audio-preview"
