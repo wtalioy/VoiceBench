@@ -16,6 +16,7 @@ from .meralion import MERaLiONAssistant
 from .lyra import LyraMiniAssistant, LyraBaseAssistant
 from .freeze_omni import FreezeOmniAssistant
 from .minicpm import MiniCPMAssistant
+from baichuan import BaichuanAssistant
 
 model_cls_mapping = {
     'qwen2': Qwen2Assistant,
@@ -38,4 +39,5 @@ model_cls_mapping = {
     'lyra_base': LyraBaseAssistant,
     'freeze_omni': FreezeOmniAssistant,
     'minicpm': MiniCPMAssistant,
+    'baichuan': BaichuanAssistant,
 }
