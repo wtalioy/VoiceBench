@@ -24,29 +24,30 @@ This repo contains the code and data of:
 |:----:|-------------------------------|:----------:|:----------:|:-----:|:-----:|:----------:|:------:|:--------:|:-------:|
 |  1   | Whisper-v3-large+GPT-4o       |    4.80    |    4.47    | 75.77 | 81.69 |   92.97    | 76.51  |  98.27   |  87.23  |
 |  2   | GPT-4o-Audio                  |    4.78    |    4.49    | 75.50 | 80.25 |   89.23    | 76.02  |  98.65   |  86.42  |
-|  3   | Whisper-v3-large+LLaMA-3.1-8B |    4.53    |    4.04    | 70.43 | 62.43 |   81.54    | 69.53  |  98.08   |  79.06  |
-|  4   | Whisper-v3-turbo+LLaMA-3.1-8B |    4.55    |    4.02    | 58.23 | 62.04 |   72.09    | 71.12  |  98.46   |  76.16  |
-|  5   | MiniCPM                       |    4.42    |    4.15    | 50.72 | 54.78 |   78.02    | 49.25  |  97.69   |  71.69  |
-|  6   | Ultravox-v0.4.1-LLaMA-3.1-8B  |    4.55    |    3.90    | 53.35 | 47.17 |   65.27    | 66.88  |  98.46   |  71.45  |
-|  7   | Baichuan-Omni-1.5             |    4.50    |    4.05    | 43.40 | 57.25 |   74.51    | 54.54  |  97.31   |  71.14  |
-|  8   | Whisper-v3-turbo+LLaMA-3.2-3B |    4.45    |    3.82    | 49.28 | 51.37 |   60.66    | 69.71  |  98.08   |  70.66  |
-|  9   | VITA-1.5                      |    4.21    |    3.66    | 38.88 | 52.15 |   71.65    | 38.14  |  97.69   |  65.13  |
-|  10  | MERaLiON                      |    4.50    |    3.77    | 55.06 | 34.95 |   27.23    | 62.93  |  94.81   |  62.91  |
-|  11  | Lyra-Base                     |    3.85    |    3.50    | 38.25 | 49.74 |   72.75    | 36.28  |  59.62   |  57.66  |
-|  12  | GLM-4-Voice                   |    3.97    |    3.42    | 36.98 | 39.75 |   53.41    | 25.92  |  88.08   |  55.99  |
-|  13  | DiVA                          |    3.67    |    3.54    | 57.05 | 25.76 |   25.49    | 39.15  |  98.27   |  55.70  |
-|  14  | Qwen2-Audio                   |    3.74    |    3.43    | 35.71 | 35.72 |   49.45    | 26.33  |  96.73   |  55.35  |
-|  15  | Freeze-Omni                   |    4.03    |    3.46    | 53.45 | 28.14 |   30.98    | 23.40  |  97.30   |  54.72  |
-|  16  | KE-Omni-v1.5                  |    3.82    |    3.20    | 31.20 | 32.27 |   58.46    | 15.00  |  100.00  |  53.90  |
-|  17  | Megrez-3B-Omni                |    3.50    |    2.95    | 25.95 | 27.03 |   28.35    | 25.71  |  87.69   |  46.25  |
-|  18  | Lyra-Mini                     |    2.99    |    2.69    | 19.89 | 31.42 |   41.54    | 20.91  |  80.00   |  43.91  |
-|  19  | Ichigo                        |    3.79    |    3.17    | 36.53 | 25.63 |   26.59    | 21.59  |  57.50   |  43.86  |
-|  20  | LLaMA-Omni                    |    3.70    |    3.46    | 39.69 | 25.93 |   27.47    | 14.87  |  11.35   |  37.51  |
-|  21  | VITA-1.0                      |    3.38    |    2.15    | 27.94 | 25.70 |   29.01    | 22.82  |  26.73   |  34.68  |
-|  22  | SLAM-Omni                     |    1.90    |    1.79    | 4.16  | 26.06 |   25.27    | 13.38  |  94.23   |  33.84  |
-|  23  | Mini-Omni2                    |    2.32    |    2.18    | 9.31  | 24.27 |   26.59    | 11.56  |  57.50   |  31.32  |
-|  24  | Mini-Omni                     |    1.95    |    2.02    | 13.92 | 24.69 |   26.59    | 13.58  |  37.12   |  27.90  |
-|  25  | Moshi                         |    2.01    |    1.60    | 15.64 | 24.04 |   25.93    | 10.12  |  44.23   |  27.47  |
+|  3   | GPT-4o-mini-Audio             |    4.75    |    4.24    | 67.36 | 72.90 |   84.84    | 72.90  |  98.27   |  82.30  |
+|  4   | Whisper-v3-large+LLaMA-3.1-8B |    4.53    |    4.04    | 70.43 | 62.43 |   81.54    | 69.53  |  98.08   |  79.06  |
+|  5   | Whisper-v3-turbo+LLaMA-3.1-8B |    4.55    |    4.02    | 58.23 | 62.04 |   72.09    | 71.12  |  98.46   |  76.16  |
+|  6   | MiniCPM-o                     |    4.42    |    4.15    | 50.72 | 54.78 |   78.02    | 49.25  |  97.69   |  71.69  |
+|  7   | Ultravox-v0.4.1-LLaMA-3.1-8B  |    4.55    |    3.90    | 53.35 | 47.17 |   65.27    | 66.88  |  98.46   |  71.45  |
+|  8   | Baichuan-Omni-1.5             |    4.50    |    4.05    | 43.40 | 57.25 |   74.51    | 54.54  |  97.31   |  71.14  |
+|  9   | Whisper-v3-turbo+LLaMA-3.2-3B |    4.45    |    3.82    | 49.28 | 51.37 |   60.66    | 69.71  |  98.08   |  70.66  |
+|  10  | VITA-1.5                      |    4.21    |    3.66    | 38.88 | 52.15 |   71.65    | 38.14  |  97.69   |  65.13  |
+|  11  | MERaLiON                      |    4.50    |    3.77    | 55.06 | 34.95 |   27.23    | 62.93  |  94.81   |  62.91  |
+|  12  | Lyra-Base                     |    3.85    |    3.50    | 38.25 | 49.74 |   72.75    | 36.28  |  59.62   |  57.66  |
+|  13  | GLM-4-Voice                   |    3.97    |    3.42    | 36.98 | 39.75 |   53.41    | 25.92  |  88.08   |  55.99  |
+|  14  | DiVA                          |    3.67    |    3.54    | 57.05 | 25.76 |   25.49    | 39.15  |  98.27   |  55.70  |
+|  15  | Qwen2-Audio                   |    3.74    |    3.43    | 35.71 | 35.72 |   49.45    | 26.33  |  96.73   |  55.35  |
+|  16  | Freeze-Omni                   |    4.03    |    3.46    | 53.45 | 28.14 |   30.98    | 23.40  |  97.30   |  54.72  |
+|  17  | KE-Omni-v1.5                  |    3.82    |    3.20    | 31.20 | 32.27 |   58.46    | 15.00  |  100.00  |  53.90  |
+|  18  | Megrez-3B-Omni                |    3.50    |    2.95    | 25.95 | 27.03 |   28.35    | 25.71  |  87.69   |  46.25  |
+|  19  | Lyra-Mini                     |    2.99    |    2.69    | 19.89 | 31.42 |   41.54    | 20.91  |  80.00   |  43.91  |
+|  20  | Ichigo                        |    3.79    |    3.17    | 36.53 | 25.63 |   26.59    | 21.59  |  57.50   |  43.86  |
+|  21  | LLaMA-Omni                    |    3.70    |    3.46    | 39.69 | 25.93 |   27.47    | 14.87  |  11.35   |  37.51  |
+|  22  | VITA-1.0                      |    3.38    |    2.15    | 27.94 | 25.70 |   29.01    | 22.82  |  26.73   |  34.68  |
+|  23  | SLAM-Omni                     |    1.90    |    1.79    | 4.16  | 26.06 |   25.27    | 13.38  |  94.23   |  33.84  |
+|  24  | Mini-Omni2                    |    2.32    |    2.18    | 9.31  | 24.27 |   26.59    | 11.56  |  57.50   |  31.32  |
+|  25  | Mini-Omni                     |    1.95    |    2.02    | 13.92 | 24.69 |   26.59    | 13.58  |  37.12   |  27.90  |
+|  26  | Moshi                         |    2.01    |    1.60    | 15.64 | 24.04 |   25.93    | 10.12  |  44.23   |  27.47  |
 
 
 We encourage you to submit new voice assistant results directly through the issue tracker. The ranking list will be updated accordingly.
@@ -138,7 +139,7 @@ python evaluate.py --src_file result-naive-alpacaeval-test-audio.jsonl --evaluat
 ## Awesome Voice Assistants
 | Title                                                                                                                                                                                                                                                                                                                                        |    Date    |                            Code                             |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|:-----------------------------------------------------------:|
-| [**Baichuan-Omni-1.5 Technical Report**](https://github.com/baichuan-inc/Baichuan-Omni-1.5/blob/main/baichuan_omni_1_5.pdf) &nbsp; ![Star](https://img.shields.io/github/stars/baichuan-inc/Baichuan-Omni-1.5)                                                                                                                               | 2025-01-26 | [Github](https://github.com/baichuan-inc/Baichuan-Omni-1.5) |
+| [**Baichuan-Omni-1.5 Technical Report**](https://arxiv.org/abs/2501.15368) &nbsp; ![Star](https://img.shields.io/github/stars/baichuan-inc/Baichuan-Omni-1.5)                                                                                                                                                                                | 2025-01-26 | [Github](https://github.com/baichuan-inc/Baichuan-Omni-1.5) |
 | [**MiniCPM-o 2.6: A GPT-4o Level MLLM for Vision, Speech, and Multimodal Live Streaming on Your Phone**](https://openbmb.notion.site/MiniCPM-o-2-6-A-GPT-4o-Level-MLLM-for-Vision-Speech-and-Multimodal-Live-Streaming-on-Your-Phone-185ede1b7a558042b5d5e45e6b237da9) &nbsp; ![Star](https://img.shields.io/github/stars/OpenBMB/MiniCPM-o) | 2025-01-24 |       [Github](https://github.com/OpenBMB/MiniCPM-o)        |
 | [**MinMo: A Multimodal Large Language Model for Seamless Voice Interaction**](https://arxiv.org/abs/2501.06282)                                                                                                                                                                                                                              | 2025-01-10 |                             --                              |
 | [**OpenOmni: Large Language Models Pivot Zero-shot Omnimodal Alignment across Language with Real-time Self-Aware Emotional Speech Synthesis**](https://arxiv.org/abs/2501.04561) &nbsp; ![Star](https://img.shields.io/github/stars/RainBowLuoCS/OpenOmni.svg?style=social&label=Star)                                                       | 2025-01-08 |     [Github](https://github.com/RainBowLuoCS/OpenOmni)      |
