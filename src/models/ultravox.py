@@ -19,3 +19,10 @@ class UltravoxAssistant(VoiceAssistant):
         ]
         return self.pipe({'audio': audio['array'], 'turns': turns, 'sampling_rate': audio['sampling_rate']}, max_new_tokens=max_new_tokens)
 
+
+class Ultravox0d5Assistant(UltravoxAssistant):
+    def __init__(self):
+        self.pipe = transformers.pipeline(model='fixie-ai/ultravox-v0_5-llama-3_1-8b',
+                                          trust_remote_code=True,
+                                          cache_dir='./cache',
+                                          device='cuda')

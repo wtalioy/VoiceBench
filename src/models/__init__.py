@@ -9,14 +9,15 @@ from .naive3 import Naive3Assistant
 from .naive4 import Naive4Assistant
 from .moshi import MoshiAssistant
 from .glm import GLMAssistant
-from .ultravox import UltravoxAssistant
+from .ultravox import UltravoxAssistant, Ultravox0d5Assistant
 from .ichigo import IchigoeAssistant
 from .megrez import MegrezAssistant
 from .meralion import MERaLiONAssistant
 from .lyra import LyraMiniAssistant, LyraBaseAssistant
 from .freeze_omni import FreezeOmniAssistant
 from .minicpm import MiniCPMAssistant
-from baichuan import BaichuanAssistant
+from .baichuan import BaichuanAssistant
+from .step_audio import StepAssistant
 
 model_cls_mapping = {
     'qwen2': Qwen2Assistant,
@@ -32,6 +33,7 @@ model_cls_mapping = {
     'moshi': MoshiAssistant,
     'glm': GLMAssistant,
     'ultravox': UltravoxAssistant,
+    'ultravox0_5': Ultravox0d5Assistant,
     'ichigo': IchigoeAssistant,
     'megrez': MegrezAssistant,
     'meralion': MERaLiONAssistant,
@@ -40,4 +42,5 @@ model_cls_mapping = {
     'freeze_omni': FreezeOmniAssistant,
     'minicpm': MiniCPMAssistant,
     'baichuan': BaichuanAssistant,
+    'step': StepAssistant,
 }
