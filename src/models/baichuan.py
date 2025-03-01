@@ -18,20 +18,15 @@ class BaichuanAssistant(VoiceAssistant):
             'assistant': '<C_A>',
             'audiogen': '<audiotext_start_baichuan>'
         }
-        if not os.path.exists("./cache/Baichuan-Omni-1d5"):
-            snapshot_download(
-                repo_id="baichuan-inc/Baichuan-Omni-1d5",
-                local_dir="./cache/Baichuan-Omni-1d5",
-            )
-        self.model = AutoModelForCausalLM.from_pretrained(
-            './cache/Baichuan-Omni-1d5', trust_remote_code=True, torch_dtype=torch.bfloat16
-        ).cuda()
-        self.tokenizer = AutoTokenizer.from_pretrained('./cache/Baichuan-Omni-1d5', trust_remote_code=True)
+        self.load_model()
         self.model.training = False
         self.model.bind_processor(self.tokenizer, training=False, relative_path="/")
         self.audio_start_token = self.tokenizer.convert_ids_to_tokens(self.model.config.audio_config.audio_start_token_id)
         self.audio_end_token = self.tokenizer.convert_ids_to_tokens(self.model.config.audio_config.audio_end_token_id)
         self.special_token_partten = re.compile('<\|endoftext\|>|<audiogen_start_baichuan>|<audiogen_end_baichuan>')
+
+    def load_model(self):
+        raise NotImplementedError
 
     def preprocess_messages(self, messages):
         text = ""
@@ -80,3 +75,29 @@ class BaichuanAssistant(VoiceAssistant):
         full_text = re.sub(self.special_token_partten, '', text_segment)
 
         return full_text
+
+
+class BaichuanOmniAssistant(BaichuanAssistant):
+    def load_model(self):
+        if not os.path.exists("./cache/Baichuan-Omni-1d5"):
+            snapshot_download(
+                repo_id="baichuan-inc/Baichuan-Omni-1d5",
+                local_dir="./cache/Baichuan-Omni-1d5",
+            )
+        self.model = AutoModelForCausalLM.from_pretrained(
+            './cache/Baichuan-Omni-1d5', trust_remote_code=True, torch_dtype=torch.bfloat16
+        ).cuda()
+        self.tokenizer = AutoTokenizer.from_pretrained('./cache/Baichuan-Omni-1d5', trust_remote_code=True)
+
+
+class BaichuanAudioAssistant(BaichuanAssistant):
+    def load_model(self):
+        if not os.path.exists("./cache/Baichuan-Audio-Instruct"):
+            snapshot_download(
+                repo_id="baichuan-inc/Baichuan-Audio-Instruct",
+                local_dir="./cache/Baichuan-Audio-Instruct",
+            )
+        self.model = AutoModelForCausalLM.from_pretrained(
+            "./cache/Baichuan-Audio-Instruct", trust_remote_code=True, torch_dtype=torch.bfloat16
+        ).cuda()
+        self.tokenizer = AutoTokenizer.from_pretrained("./cache/Baichuan-Audio-Instruct", trust_remote_code=True)
