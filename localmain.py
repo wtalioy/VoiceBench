@@ -83,7 +83,8 @@ def main():
         results.append(tmp)
 
     # save results
-    output_file = f'{model.model_name}-{args.data}-{args.split}-{args.modality}.jsonl'
+    model_name = model.model_name.split('/')[-1]
+    output_file = f'{model_name}-{args.data}-{args.split}-{args.modality}.jsonl'
     with open(output_file, 'w') as f:
         for record in results:
             json_line = json.dumps(record)  # Convert dictionary to JSON string
