@@ -31,7 +31,7 @@ from transformers.generation.utils import (
     QUANT_BACKEND_CLASSES_MAPPING,
     is_hqq_available,
     QuantizedCacheConfig,
-    is_quanto_available,
+    # is_quanto_available,
     DynamicCache,
     EncoderDecoderCache,
     logging

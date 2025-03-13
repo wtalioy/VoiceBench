@@ -3,7 +3,7 @@ accelerate==0.33.0
 bitsandbytes==0.43.1
 datasets==3.0.0
 evaluate==0.4.3
-huggingface-hub==0.23.5
+huggingface-hub
 immutabledict
 langdetect
 loguru==0.7.2
@@ -21,8 +21,8 @@ scipy==1.14.1
 sentencepiece==0.1.99
 torchmetrics==1.4.2
 tqdm==4.66.5
-transformers==4.47.0
-triton==2.1.0
+transformers==4.49.0
+triton
 wrapt==1.16.0
 xxhash==3.5.0
 yarl==1.12.1
@@ -32,4 +32,7 @@ snac==1.2.0
 whisperspeech==0.8
 webdataset
 vector_quantize_pytorch
-
+matplotlib
+IPython
+deepspeed
+timm
