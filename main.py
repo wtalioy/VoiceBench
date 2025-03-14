@@ -28,36 +28,44 @@ def main():
         _ = model.generate_ttft(data[0]['audio'])
 
     # inference
+    logger.add('log/last.log', rotation='50MB')
     results = []
     for item in tqdm(data, total=len(data)):
         tmp = {k: v for k, v in item.items() if k != 'audio'}
-        if args.modality == 'text':
-            response = model.generate_text(item['prompt'])
-            token_usage = None
-        elif args.modality == 'audio':
-            mixed_response = model.generate_audio(item['audio'])
-            if isinstance(mixed_response, tuple):
-                response, token_usage = mixed_response
-            else:
-                response = mixed_response
+        try:
+            if args.modality == 'text':
+                response = model.generate_text(item['prompt'])
                 token_usage = None
-        elif args.modality == 'ttft':
-            response = model.generate_ttft(item['audio'])
-            token_usage = None
-        else:
-            raise NotImplementedError
-        logger.info(item['prompt'])
-        logger.info(response)
-        logger.info('====================================')
-        tmp['response'] = response
-        if token_usage:
-            tmp['token_usage'] = token_usage
-        results.append(tmp)
+            elif args.modality == 'audio':
+                mixed_response = model.generate_audio(item['audio'])
+                if isinstance(mixed_response, tuple):
+                    response, token_usage = mixed_response
+                else:
+                    response = mixed_response
+                    token_usage = None
+            elif args.modality == 'ttft':
+                response = model.generate_ttft(item['audio'])
+                token_usage = None
+            else:
+                raise NotImplementedError
+            logger.info(item['prompt'])
+            logger.info(response)
+            logger.info('====================================')
+            tmp['response'] = response
+            if token_usage:
+                tmp['token_usage'] = token_usage
+            results.append(tmp)
+        except Exception as e:
+            logger.error(f"Error with prompt: {item['prompt']}")
+            logger.error(e)
+            logger.error('====================================')
+            continue
+
+    if len(data) > len(results):
+        logger.warning(f"Some data failed to process. {len(data) - len(results)} items were skipped.")
 
     # save results
     model_name = args.model.split('/')[-1]
-
-    # Create the output directory if it doesn't exist
     output_dir = 'output'
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, f'{model_name}-{args.data}-{args.split}-{args.modality}.jsonl')
