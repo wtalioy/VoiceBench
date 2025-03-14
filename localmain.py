@@ -47,7 +47,13 @@ class LocalAssistant(VoiceAssistant):
             ]
         )
 
-        return completion.choices[0].message.content
+        token_usage = {
+            "prompt_tokens": completion.usage.prompt_tokens,
+            "completion_tokens": completion.usage.completion_tokens,
+            "total_tokens": completion.usage.total_tokens
+        }
+        
+        return completion.choices[0].message.content, token_usage
 
 
 def main():
@@ -70,16 +76,22 @@ def main():
         tmp = {k: v for k, v in item.items() if k != 'audio'}
         if args.modality == 'text':
             response = model.generate_text(item['prompt'])
+            token_usage = None
         elif args.modality == 'audio':
-            response = model.generate_audio(item['audio'])
+            response, token_usage = model.generate_audio(item['audio'])
         elif args.modality == 'ttft':
             response = model.generate_ttft(item['audio'])
+            token_usage = None
         else:
             raise NotImplementedError
         logger.info(item['prompt'])
         logger.info(response)
+        if token_usage:
+            logger.info(f"Token usage: Prompt={token_usage['prompt_tokens']}, Completion={token_usage['completion_tokens']}, Total={token_usage['total_tokens']}")
         logger.info('====================================')
         tmp['response'] = response
+        if token_usage:
+            tmp['token_usage'] = token_usage
         results.append(tmp)
 
     # save results
