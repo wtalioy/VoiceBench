@@ -35,7 +35,12 @@ def main():
             response = model.generate_text(item['prompt'])
             token_usage = None
         elif args.modality == 'audio':
-            response, token_usage = model.generate_audio(item['audio'])
+            mixed_response = model.generate_audio(item['audio'])
+            if isinstance(mixed_response, tuple):
+                response, token_usage = mixed_response
+            else:
+                response = mixed_response
+                token_usage = None
         elif args.modality == 'ttft':
             response = model.generate_ttft(item['audio'])
             token_usage = None
@@ -43,8 +48,6 @@ def main():
             raise NotImplementedError
         logger.info(item['prompt'])
         logger.info(response)
-        if token_usage:
-            logger.info(f"Token usage: Prompt={token_usage['prompt_tokens']}, Completion={token_usage['completion_tokens']}, Total={token_usage['total_tokens']}")
         logger.info('====================================')
         tmp['response'] = response
         if token_usage:

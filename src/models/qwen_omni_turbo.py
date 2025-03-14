@@ -4,12 +4,14 @@ import base64
 import os
 from openai import OpenAI
 import soundfile as sf
+import httpx
 
 class QwenOmniAssistant(VoiceAssistant):
     def __init__(self):
         self.client = OpenAI(
-            api_key=os.getenv("API_KEY"),
-            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+            api_key=os.getenv("DASHSCOPE_API_KEY"),
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+            http_client=httpx.Client(),
         )
         self.model_name = "qwen-omni-turbo"
     
@@ -48,13 +50,17 @@ class QwenOmniAssistant(VoiceAssistant):
                     ]
                 }
             ],
-            modalities=["text"],
             stream=True,
             stream_options={"include_usage": True},
         )
-        token_usage = {
-            "prompt_tokens": completion.usage.prompt_tokens,
-            "completion_tokens": completion.usage.completion_tokens,
-            "total_tokens": completion.usage.total_tokens
-        }
-        return completion.choices[0].message.content, token_usage
+        
+        collected_messages = []
+        
+        for chunk in completion:
+            if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
+                content = chunk.choices[0].delta.content
+                collected_messages.append(content)
+        
+        full_response = "".join(collected_messages)
+        
+        return full_response

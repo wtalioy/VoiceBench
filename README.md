@@ -113,11 +113,6 @@ To obtain the responses from the voice assistant model, run the following comman
 python main.py --model naive --data alpacaeval --split test --modality audio
 ```
 
-If you are testing a model with API, set the environment variable `API_KEY` first:
-```shell
-export API_KEY="your_api_key_here"
-```
-
 **Supported Arguments:**
 - `--model`: Specifies the model to use for generating responses. Replace `naive` with the model you want to test (e.g., `qwen2`, `diva`).
 - `--data`: Selects the subset of the dataset. Replace `alpacaeval` with other subsets like `commoneval`, `sd-qa`, etc., depending on your evaluation needs.
