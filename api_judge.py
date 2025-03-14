@@ -4,9 +4,14 @@ import json
 from openai import OpenAI
 from src.api import generate_text_chat
 from argparse import ArgumentParser
+import os
+import httpx
 
-
-client = OpenAI()
+client = OpenAI(
+    api_key=os.getenv('OPENAI_API_KEY'),
+    base_url="https://172.203.11.191:3826/v1",
+    http_client=httpx.Client()
+)
 
 meta_prompt_open = """
 I need your help to evaluate the performance of several models in the speech interaction scenario. The models will receive a speech input from the user, which they need to understand and respond to with a speech output.
@@ -58,7 +63,7 @@ def generate(item):
             frequency_penalty=0,
             presence_penalty=0,
             stop=None,
-            temperature=0.5, top_p=0.95, n=3
+            temperature=0.5, top_p=0.95, n=1
         ).choices
     ]
     item['score'] = rtn
@@ -67,12 +72,12 @@ def generate(item):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('--src_file', required=True)
+    parser.add_argument('--src-file', required=True)
     args = parser.parse_args()
 
     # read source data
     data = []
-    with open('output/' + args.src_file, 'r') as f:
+    with open(args.src_file, 'r') as f:
         for line in f:
             json_obj = json.loads(line.strip())  # Convert JSON string to dictionary
             data.append(json_obj)
@@ -82,14 +87,14 @@ def main():
         scores = list(tqdm(pool.imap(generate, data), total=len(data)))
 
     # save results
-    tgt_file = 'output/result-' + args.src_file
-    with open(tgt_file, "w") as file:
-        for d in scores:
-            file.write(json.dumps(d) + "\n")
+    os.makedirs('result', exist_ok=True)
+    src_file = args.src_file.split('/')[-1]
+    tgt_file = 'result/' + src_file
     with open(tgt_file, "w") as file:
         for d in scores:
             file.write(json.dumps(d) + "\n")
 
+    print(f"Results saved to {tgt_file}")
 
 if __name__ == '__main__':
     main()

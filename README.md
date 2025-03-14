@@ -131,16 +131,16 @@ This will generate the output and save it to a file named naive-alpacaeval-test-
 ### Step2: Automatic GPT-4 Evaluation
 For datasets `alpacaeval`, `commoneval`, and `sd-qa`, we use `gpt-4o-mini` to evaluate the responses. Run the following command to get the GPT score:
 ```shell
-python api_judge.py --src_file naive-alpacaeval-test-audio.jsonl
+python api_judge.py --src-file output/naive-alpacaeval-test-audio.jsonl
 ```
-The GPT evaluation scores will be saved to `result-naive-alpacaeval-test-audio.jsonl`.
+The GPT evaluation scores will be saved to `output/naive-alpacaeval-test-audio.jsonl`.
 
 **Note:** This step should be skipped for other datasets, as they are not evaluated using GPT-4.
 
 ### Step3: Get the Final Results
 To generate the final evaluation results, run:
 ```shell
-python evaluate.py --src_file result-naive-alpacaeval-test-audio.jsonl --evaluator open
+python evaluate.py --src-file result/naive-alpacaeval-test-audio.jsonl --evaluator open
 ```
 **Supported Arguments:**
 - `--evaluator`: Specifies the evaluator type:

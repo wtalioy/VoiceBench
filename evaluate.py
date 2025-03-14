@@ -6,7 +6,7 @@ from loguru import logger
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('--src_file', type=str, required=True)
+    parser.add_argument('--src-file', type=str, required=True)
     parser.add_argument('--evaluator', type=str, required=True, choices=list(evaluator_mapping.keys()))
     args = parser.parse_args()
     data = []
