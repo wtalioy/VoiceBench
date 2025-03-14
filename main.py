@@ -4,11 +4,12 @@ from src.models import model_cls_mapping
 import json
 from tqdm import tqdm
 from loguru import logger
+import os
 
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('--model', type=str, default='baichuan_omni', choices=list(model_cls_mapping.keys()))
+    parser.add_argument('--model', type=str, default='local', choices=list(model_cls_mapping.keys()))
     parser.add_argument('--data', type=str, default='alpacaeval')
     parser.add_argument('--split', type=str, default='test')
     parser.add_argument('--modality', type=str, default='audio', choices=['audio', 'text', 'ttft'])
@@ -32,20 +33,31 @@ def main():
         tmp = {k: v for k, v in item.items() if k != 'audio'}
         if args.modality == 'text':
             response = model.generate_text(item['prompt'])
+            token_usage = None
         elif args.modality == 'audio':
-            response = model.generate_audio(item['audio'])
+            response, token_usage = model.generate_audio(item['audio'])
         elif args.modality == 'ttft':
             response = model.generate_ttft(item['audio'])
+            token_usage = None
         else:
             raise NotImplementedError
         logger.info(item['prompt'])
         logger.info(response)
+        if token_usage:
+            logger.info(f"Token usage: Prompt={token_usage['prompt_tokens']}, Completion={token_usage['completion_tokens']}, Total={token_usage['total_tokens']}")
         logger.info('====================================')
         tmp['response'] = response
+        if token_usage:
+            tmp['token_usage'] = token_usage
         results.append(tmp)
 
     # save results
-    output_file = f'{args.model}-{args.data}-{args.split}-{args.modality}.jsonl'
+    model_name = args.model.split('/')[-1]
+
+    # Create the output directory if it doesn't exist
+    output_dir = 'output'
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, f'{model_name}-{args.data}-{args.split}-{args.modality}.jsonl')
     with open(output_file, 'w') as f:
         for record in results:
             json_line = json.dumps(record)  # Convert dictionary to JSON string

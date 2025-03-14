@@ -72,7 +72,7 @@ def main():
 
     # read source data
     data = []
-    with open(args.src_file, 'r') as f:
+    with open('output/' + args.src_file, 'r') as f:
         for line in f:
             json_obj = json.loads(line.strip())  # Convert JSON string to dictionary
             data.append(json_obj)
@@ -82,7 +82,10 @@ def main():
         scores = list(tqdm(pool.imap(generate, data), total=len(data)))
 
     # save results
-    tgt_file = 'result-' + args.src_file
+    tgt_file = 'output/result-' + args.src_file
+    with open(tgt_file, "w") as file:
+        for d in scores:
+            file.write(json.dumps(d) + "\n")
     with open(tgt_file, "w") as file:
         for d in scores:
             file.write(json.dumps(d) + "\n")
