@@ -19,6 +19,7 @@ class MCQEvaluator(Evaluator):
             "答案选[CHOICE]",
             "[CHOICE]是正确",
             "选项[CHOICE]是最合适的",
+            "final answer: [CHOICE]",
             "answer is: **[CHOICE]",
             'answer is **[CHOICE]',
             "the answer to the question is: **[CHOICE]",
@@ -99,6 +100,9 @@ class MCQEvaluator(Evaluator):
             "is: **[CHOICE],",
             '(option [CHOICE])',
             'answer is ([CHOICE])',
+            'answer: [CHOICE]',
+            'answer is:\n\n[CHOICE]',
+            'answer is:\n[CHOICE]',
             "select option \"[CHOICE]\"",
             "is: [CHOICE]",
             "is typically **[CHOICE],",
@@ -160,18 +164,23 @@ class MCQEvaluator(Evaluator):
             "is most likely **[CHOICE],",
             "is often **[CHOICE]:",
             "is:  \n[CHOICE])",
+            "is:\n[CHOICE]",
+            "is:\n**[CHOICE]",
             " [CHOICE].",
             " [CHOICE],",
             " [CHOICE]:",
             " [CHOICE])",
             "**[CHOICE].",
             "**[CHOICE])",
+            "**[CHOICE]:",
             "\"[CHOICE].",
             "\"[CHOICE],",
             "\"[CHOICE]:",
             "([CHOICE])",
             "\"[CHOICE]\"",
-
+            "{[CHOICE]}",
+            "\n\n**[CHOICE]",
+            "would be:\n\n[CHOICE]",
         ]:
             for choice in ['a', 'b', 'c', 'd']:
                 if template.replace('[CHOICE]', choice) in response:
@@ -203,6 +212,9 @@ class MCQEvaluator(Evaluator):
             if preds[idx] == None:
                 preds[idx] = random.choice(['A', 'B', 'C', 'D'])
                 cnt += 1
+                print(idx + 1, 'failed to extract answer')
+                print(repr(data[idx]['response']))
+                print('====')
         correct_predictions = sum([1 for pred, gt in zip(preds, ground_truth) if pred == gt])
         total_predictions = len(ground_truth)
         accuracy = correct_predictions / total_predictions
